@@ -1,11 +1,20 @@
 class CommentsController < ApplicationController
-	
+
   http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
-  
-  def create
+	def new
+	  @comment = Comment.new
+	end
+
+	def create
     	@article = Article.find(params[:article_id])
     	@comment = @article.comments.create(comment_params)
-    	redirect_to article_path(@article)
+			# new modification starts
+			if @comment.save
+			redirect_to article_path(@article)
+			else
+			 	render 'new'
+			end
+			# end of new
   	end
 
   	def destroy
@@ -14,7 +23,7 @@ class CommentsController < ApplicationController
     	@comment.destroy
     	redirect_to article_path(@article)
   end
- 
+
   	private
     	def comment_params
       		params.require(:comment).permit(:commenter, :body)
