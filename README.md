@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running the app
 
-Things you may want to cover:
+Clone this repo:
 
-* Ruby version
+```
+$ git clone https://github.com/lfr4704/ruby_tutorial_2
+```
 
-* System dependencies
+Install all dependancies:
 
-* Configuration
+```
+$ bundle install
+```
 
-* Database creation
+Create the database and run migrations:
 
-* Database initialization
+```
+$ rake db:create db:migrate
+```
 
-* How to run the test suite
+Start the server:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ rails server
+```
+And open the app in your browser at http://localhost:3000/.
