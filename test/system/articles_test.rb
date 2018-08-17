@@ -6,13 +6,14 @@ class ArticlesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Listing articles"
   end
 
+# I could not find a way to pass test with identification not commented out in articles controller
   test "creating an article" do
     visit articles_path
 
     click_on "New article"
 
     fill_in "Title", with: "Creating an Article"
-    fill_in "Body", with: "Created this article successfully!"
+    fill_in "Text", with: "Created this article successfully!"
 
     click_on "Create Article"
 

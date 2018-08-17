@@ -1,9 +1,14 @@
 require 'test_helper'
+# require 'pry'
 
 class ArticleTest < ActiveSupport::TestCase
   test "should not save article without title" do
     article = Article.new
+
+
+    # binding.pry
     assert_not article.save, "Saved the article without a title"
+
   end
 
   test "should report error" do
