@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should not save comment without title" do
+    article = Comment.new
+    assert_not article.save, "Saved the article without a title"
+  end
 end

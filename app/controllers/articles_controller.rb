@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+	# http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
 	def index
 		@articles = Article.all
@@ -19,14 +19,14 @@ class ArticlesController < ApplicationController
 
 	def create
   		@article = Article.new(article_params)
- 
+
   		if @article.save
   			redirect_to @article # will tell the browser to issue another request
   		else
   			render 'new' #object is passed back to the new template when it is rendered
   		end
 	end
- 
+
 	def update
 		@article = Article.find(params[:id])
 
